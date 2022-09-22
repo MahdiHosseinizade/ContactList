@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css'
 import AddContact from './components/AddContact/AddContact';
 import ContactLsit from './components/ContactList/ContactLsit';
@@ -6,7 +6,6 @@ import ContactLsit from './components/ContactList/ContactLsit';
 const App = () => {
   
   const [contacts,setContacts] = useState([])
-  // console.log(contacts);
 
   const addContactHandler = (contact) =>{
     setContacts([...contacts,
@@ -17,6 +16,17 @@ const App = () => {
     const filteredContacts = contacts.filter((c) =>c.id !== id)
     setContacts(filteredContacts)
   }
+  
+  useEffect(() => {
+    const savedContacts = JSON.parse(localStorage.getItem("cantacts"))
+    if (savedContacts) {setContacts(savedContacts);}
+  }, [])
+  
+  useEffect(() =>{
+    localStorage.setItem("contacts",JSON.stringify(contacts))
+  },[contacts])
+  
+  
 
   return (
     <div className="App">
