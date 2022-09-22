@@ -1,0 +1,34 @@
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(110, 106, 106);
+}
+
+.formControl{
+    display: flex;
+    flex-direction:column ;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.formControl input{
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 4px 5px;
+}
+.formControl input:focus{
+    border: 2px solid #eab308;
+}
+
+form button{
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background-color: #eab308;
+    color:#fff ;
+    padding: 5px 10px;
+    margin: 7px;
+    cursor: pointer;
+}
