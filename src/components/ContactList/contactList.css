@@ -27,6 +27,9 @@
     color: crimson;
     background-color: #fff;
 }
+.item button:hover{
+    background-color: #ccc;
+}
 
 .item img{
     height: 20px;
