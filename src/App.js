@@ -5,7 +5,7 @@ import ContactLsit from './components/ContactList/ContactLsit';
 
 const App = () => {
   
-  const [contacts,setContacts] = useState([])
+  const [contacts,setContacts] = useState(JSON.parse(localStorage.getItem("contacts")))
 
   const addContactHandler = (contact) =>{
     setContacts([...contacts,
@@ -17,10 +17,7 @@ const App = () => {
     setContacts(filteredContacts)
   }
   
-  useEffect(() => {
-    const savedContacts = JSON.parse(localStorage.getItem("cantacts"))
-    if (savedContacts) {setContacts(savedContacts);}
-  }, [])
+  
   
   useEffect(() =>{
     localStorage.setItem("contacts",JSON.stringify(contacts))
