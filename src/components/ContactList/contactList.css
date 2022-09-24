@@ -36,3 +36,16 @@
     width: 20px;
     border-radius: 50%;
 }
+
+.link{
+    padding: 3px 10px;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #fff;
+    font-family: sans-serif;
+    text-decoration: none;
+    border: 1px solid #EAB308;
+    color: #EAB308;
+}

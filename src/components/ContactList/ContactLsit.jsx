@@ -1,17 +1,27 @@
 import './contactList.css'
 import userImage from '../img/user.jpg'
-const ContactLsit = ({contacts,onDelete}) => {
+import { Link } from 'react-router-dom';
+import Contact from '../Contact/Contact';
 
+
+const ContactLsit = ({contacts,onDelete}) => {
     return (
         <div className="contactList">
+            <div>
+                <h2>Contacts</h2>
+                <Link  to={'/add'}>
+                    <button className='link'>Add contact</button>
+                </Link>
+            </div>
             {contacts.map((contact) => {
                 return(
-                    <div className="item" key={contact.id}>
-                        <img src={userImage} alt="user"/>
-                        <p>name : {contact.name}</p>
-                        <p>email :{contact.email}</p>
-                        <button onClick={() =>onDelete(contact.id)}>delete</button>
-                    </div>
+                    <Contact
+                        id = {contact.id}
+                        name = {contact.name}
+                        email ={contact.email}
+                        userImage = {userImage}
+                        onDelete ={() =>onDelete(contact.id)}
+                    />
                 )
             })}
         </div>

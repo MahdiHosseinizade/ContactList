@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './App.css'
 import AddContact from './components/AddContact/AddContact';
+import ContactDetail from './components/ContactDetail/ContactDetail';
 import ContactLsit from './components/ContactList/ContactLsit';
 
 const App = () => {
@@ -28,17 +30,21 @@ const App = () => {
   return (
     <div className="App">
       <h1>Contact App</h1>
-      <section>
-        <AddContact 
-          addContactHandler = {addContactHandler}
+      <Switch>
+        <Route 
+          path="/add" 
+          render={(props) => <AddContact addContactHandler = {addContactHandler} {...props}/>} 
         />
-      </section>
-      <section>
-        <ContactLsit 
-          onDelete={removeContactHandler}
-          contacts = {contacts}
+        <Route 
+          path="/" 
+          exact 
+          render={(props) => <ContactLsit onDelete={removeContactHandler} contacts = {contacts} {...props}/> } 
         />
-      </section>
+        <Route 
+          path= "/contact/:id" 
+          component={ContactDetail}
+        />
+      </Switch>
     </div>
   );
 }
