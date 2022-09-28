@@ -6,8 +6,9 @@ import Contact from '../Contact/Contact';
 
 const ContactLsit = ({contacts,onDelete}) => {
     return (
-        <div className="contactList">
-            <div>
+        <section className='listWrapper'>
+            <div className="contactList">
+            <div className='listHeader'>
                 <h2>Contacts</h2>
                 <Link  to={'/add'}>
                     <button className='link'>Add contact</button>
@@ -25,6 +26,7 @@ const ContactLsit = ({contacts,onDelete}) => {
                 )
             })}
         </div>
+        </section>
     );
 }
  

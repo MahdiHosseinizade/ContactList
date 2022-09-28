@@ -49,3 +49,20 @@
     border: 1px solid #EAB308;
     color: #EAB308;
 }
+
+.listHeader{
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+
+/* .listWrapper{ */
+    /* display: flex;
+    justify-content: center;
+    max-width: 20rem;
+} */
