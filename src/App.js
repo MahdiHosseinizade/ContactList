@@ -21,7 +21,7 @@ const App = () => {
       setContacts([...contacts,
         {id:new Date().getTime() , name : contact.name,email:contact.email}])
         const {data} = await addNewContact(contact);
-        setContacts(data)
+        // setContacts(data)
       } catch (error) {}
   }
 
