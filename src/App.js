@@ -18,18 +18,19 @@ const App = () => {
   const addContactHandler = async(contact) =>{
     try {
       // addNewContact(contact)
-      setContacts([...contacts,
-        {id:new Date().getTime() , name : contact.name,email:contact.email}])
-        const {data} = await addNewContact(contact);
-        // setContacts(data)
+      const {data} = await addNewContact(contact);
+      setContacts([...contacts,data])
+      // setContacts([...contacts,
+      // {id:new Date().getTime() , name : contact.name,email:contact.email}])
+      // setContacts(data)
       } catch (error) {}
   }
 
   const removeContactHandler = async(id) =>{
     try {
+      await deleteContact(id)
       const filteredContacts = contacts.filter((c) => c.id !== id)
       setContacts(filteredContacts);
-      await deleteContact(id)
     } catch (error) {}
   }
   
