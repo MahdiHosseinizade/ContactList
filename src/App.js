@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css'
@@ -7,7 +8,8 @@ import ContactLsit from './components/ContactList/ContactLsit';
 
 const App = () => {
   
-  const [contacts,setContacts] = useState(JSON.parse(localStorage.getItem("contacts")))
+  // const [contacts,setContacts] = useState(JSON.parse(localStorage.getItem("contacts")))
+  const [contacts,setContacts] = useState([])
 
   const addContactHandler = (contact) =>{
     setContacts([...contacts,
@@ -22,7 +24,12 @@ const App = () => {
   
   
   useEffect(() =>{
-    localStorage.setItem("contacts",JSON.stringify(contacts))
+    // localStorage.setItem("contacts",JSON.stringify(contacts))
+    const getContacts = async() =>{
+      const {data} = await axios.get('http://localhost:3001/contacts')
+      setContacts(data)  
+    }
+    getContacts()
   },[contacts])
   
   
